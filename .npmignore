@@ -1,0 +1,17 @@
+.DS_Store
+.cache/
+.vscode/
+node_modules/
+/build
+/public
+*yarn*
+*.log*
+/src
+.babelrc
+.eslintignore
+.eslintrc.js
+dev.js
+index.html
+rollup.config.js
+favicon.ico
+tsconfig.json

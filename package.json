@@ -1,0 +1,34 @@
+{
+  "name": "@oyi/scroll",
+  "version": "1.0.3",
+  "description": "",
+  "main": "lib/scroll.umd.js",
+  "module": "lib/Scroll.js",
+  "types": "lib/Scroll.d.ts",
+  "scripts": {
+    "build": "rm -rf lib && npm run build:esm && npm run build:umd",
+    "build:esm": "tsc",
+    "build:umd": "rollup -c"
+  },
+  "repository": "git@github.com:z-oyi/scroll.git",
+  "keywords": [
+    "scroll",
+    "oyi",
+    "@oyi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@types/node": "^16.4.13",
+    "browser-sync": "^2.27.4",
+    "rollup": "^2.52.7",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@oyi/resize": "^1.0.8"
+  }
+}

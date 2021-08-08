@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div1{
+            width: 300px;
+            height: 300px;
+            /* overflow: hidden; */
+            border: 1px solid #000;
+            
+        }
+        .sub-div{
+            width: 200%;
+            height: 100px;
+            text-align: center;
+            color: #fff;
+            line-height: 100px;
+            font-size: 36px;
+            position: relative;
+        }
+        .sub-div::after{
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 20px;
+            background-color: red;
+        }
+        .test{
+            position: absolute;
+            overflow: hidden;
+            border-radius: 4px;
+            opacity: 1;
+            transition: opacity .25s;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">add</button>
+    <div id="div1" class="div1">
+        
+    </div>
+    <script src="/lib/scroll.umd.js"></script>
+    <script>
+        let div1 = document.getElementById('div1')
+        let count = 10
+        let colors = '0123401234abcabc'.split('')
+        let random16 = () => Math.floor(Math.random() * 16)
+        let randomColor = () => '#' + new Array(6).fill(0).map(_ => colors[random16()]).join('')
+        for (let i = 0; i < count; i++) {
+            let el = document.createElement('div')
+            el.className = 'sub-div'
+            el.style.backgroundColor = randomColor()
+            el.innerHTML = i
+            div1.appendChild(el)
+        }
+        let scroll = new Scroll(div1)
+        scroll.onScrollBottom(() => {
+            alert('bottom')
+        })
+        scroll.onScrollTop(() => {
+            alert('top')
+        })
+        document.getElementById('btn').onclick = function () {
+            let el = document.createElement('div')
+            el.className = 'sub-div'
+            el.style.backgroundColor = randomColor()
+            el.innerHTML = 11
+            scroll.appendChild(el)
+        }
+    </script>
+
+
+</body>
+</html>
